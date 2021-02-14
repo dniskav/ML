@@ -1,9 +1,9 @@
 import { createSelector } from 'reselect';
 import { IApplicationState } from '../types';
 
-const itemSelector = (state: IApplicationState) => state.items;
+const itemsSelector = (state: IApplicationState) => state.items;
 
-export const getItem = createSelector(
-  itemSelector,
-  (state: any) => state,
+export const getResults = createSelector(
+  itemsSelector,
+  (state: any) => state.results,
 );

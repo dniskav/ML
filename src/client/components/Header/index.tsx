@@ -6,14 +6,14 @@ import SearchBox from '../SearchBox/';
 const StyledHeader = styled.div`
     align-items: center;
     border: none;
+    border-bottom: 1px solid rgb(0 0 0 / 10%);
     display: flex;
-    height: 50px;
+    height: 58px;
     justify-content: center;
-    width: 1130px;
     background: #ffe600;
 `;
 
-const Header = () => {
+const Header: React.FC = () => {
 
   return(
     <StyledHeader>

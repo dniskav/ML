@@ -8,10 +8,11 @@ const StyledSearch = styled.div`
 `;
 
 const StyledButton = styled.button`
-  display: flex;
-  border: none;
   align-items: center;
+  border: none;
+  display: flex;
   justify-content: center;
+  margin-left: 1px;
   width: 38px;
   &:focus {
     outline: none;
@@ -20,15 +21,15 @@ const StyledButton = styled.button`
 
 const StyledInput = styled.input`
   border: 1px solid transparent;
-  width: 758px;
-  height: 32px;
-  margin-left: 20px;
-  padding: 3px 10px 0;
   box-sizing: border-box;
+  height: 38px;
+  margin-left: 25px;
   outline: none;
+  padding: 3px 10px 0;
+  width: 867px;
 `;
 
-const SearchBox = () => {
+const SearchBox: React.FC = () => {
 
   return(
     <StyledSearch>

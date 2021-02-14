@@ -8,7 +8,7 @@ const StyledLogo = styled.img`
   height: 36px;
 `;
 
-const Logo = () => {
+const Logo: React.FC = () => {
 
   return(
     <StyledLogo src={logo} onClick={() => console.log('logo clicked!')}/>
