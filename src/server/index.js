@@ -20,5 +20,10 @@ app.get('/', function (req, res) {
   res.send('hello world');
 });
 
+app.get('/items', function (req, res) {
+  console.log(req);
+  res.send('items', req.query, res);
+});
+
 app.listen(process.env.PORT || PORT, () => console.log(`Listening on port ${process.env.PORT || PORT}!`));
 

@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
-import mag from '../../assets/ic_Search.png'
+import mag from '../../assets/ic_Search.png';
+import { fetchItemsList } from '../../redux/actions';
 
 const StyledSearch = styled.div`
   display: flex;
@@ -30,15 +32,33 @@ const StyledInput = styled.input`
 `;
 
 const SearchBox: React.FC = () => {
+  const dispatch = useDispatch();
 
-  return(
+  const _handleKeyDown = (e: any) => {
+    if (e.key === 'Enter') {
+      dispatch(fetchItemsList(searchTerm));
+    }
+  };
+
+  const search = () => {
+    dispatch(fetchItemsList(searchTerm));
+  };
+
+  const [searchTerm, setSearchTerm] = useState('');
+
+  return (
     <StyledSearch>
-      <StyledInput type="text" placeholder="Nunca dejes de buscar" />
-      <StyledButton>
-        <img src={mag} alt="buscar"/>
+      <StyledInput
+        type="text"
+        placeholder="Nunca dejes de buscar"
+        onChange={(e) => setSearchTerm(e.target.value)}
+        onKeyDown={_handleKeyDown}
+      />
+      <StyledButton onClick={() => search()}>
+        <img src={mag} alt="buscar" />
       </StyledButton>
     </StyledSearch>
-  )
+  );
 };
 
 export default SearchBox;

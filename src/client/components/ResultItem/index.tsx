@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { IResultItem } from '../../redux/types';
+import getSymbolFromCurrency from 'currency-symbol-map'
+import ShippingIcon  from '../../assets/ic_shipping.png'
 
 const Container = styled.div`
   display: flex;
@@ -25,26 +27,36 @@ const Description = styled.div`
   }
 `;
 
+const Thumbnail = styled.a`
+  width: 180px;
+  height: 180px;
+  & > img {
+    object-fit: cover;
+    width: 180px;
+    height: 180px;
+  }
+`;
+
 const Location = styled.div`
   font-size: 0.8em;
   margin-top: 26px;
 `;
 
-const ResultItem: React.FC<IResultItem> = ({ image, price, data, location }) => {
+const ResultItem: React.FC<IResultItem> = ({ id, image, price, data, location, currencyId, freeShipping }) => {
   
   return(
     <Container>
-      <a href="#">
+      <Thumbnail href={`#$${id}`}>
         <img src={image.src} alt={image.alt} className="thumbnail" />
-      </a>
+      </Thumbnail>
 
       <div className="item-data">
         <Price>
-          {price}
+          {getSymbolFromCurrency(currencyId)} {price} {freeShipping && <img src={ShippingIcon} alt="free shipping" />}
         </Price>
 
         <Description>
-          <a href="#">
+          <a href={`#$${id}`}>
             <div>{data.description}</div>
           </a>
 
