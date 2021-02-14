@@ -1,20 +1,24 @@
 import React from 'react';
 import styled from 'styled-components';
-import { IResultCollection, IResultItem } from '../../redux/types';
+import { IResultCollection } from '../../redux/types';
 import ResultItem from '../ResultItem/index';
 
 const StyledSearchResults = styled.div``;
 
 const SearchResults: React.FC<IResultCollection> = ({ results }) => {
+  const list = Object.values(results).slice(0, 4);
   return (
     <StyledSearchResults>
-      {results.map((item: IResultItem) => (
+      {list.map((item: any) => (
         <ResultItem
-          key={item.image.alt}
-          image={item.image}
-          data={item.data}
-          price={item.price}
-          location={item.location}
+          id={item.id}
+          key={item?.id}
+          freeShipping={item?.shipping?.free_shipping}
+          currencyId={item?.currency_id}
+          image={{src: item?.thumbnail, alt: item?.title}}
+          data={{ description: item?.title, status: item?.condition }}
+          price={item?.price}
+          location={item?.address?.state_name}
         />
       ))}
     </StyledSearchResults>

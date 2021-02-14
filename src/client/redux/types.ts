@@ -9,6 +9,7 @@ export interface IReducerAction<TPayload>
   PayloadAction<TypeConstant, TPayload> { }
 
 export interface IApplicationState {
+  itemsLoader: boolean;
   items: {
     results: IResultItem[],
     currentItem: IResultItem,
@@ -16,11 +17,14 @@ export interface IApplicationState {
 }
 
 export interface IResultItem {
+  id: string;
   image: { 
     src: string;
     alt: string;
   };
   price: string;
+  freeShipping: boolean;
+  currencyId: string;
   data: {
     description: string;
     status: string;
