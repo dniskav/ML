@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Redirect } from 'react-router';
 import styled from 'styled-components';
 import mag from '../../assets/ic_Search.png';
 
