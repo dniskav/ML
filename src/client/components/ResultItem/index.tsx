@@ -43,10 +43,10 @@ const Location = styled.div`
 `;
 
 const ResultItem: React.FC<IResultItem> = ({ id, image, price, data, location, currencyId, freeShipping }) => {
-  
+  const produtDetailPagUrl: string = `${window.location.origin}/items/${id}`;
   return(
     <Container>
-      <Thumbnail href={`#$${id}`}>
+      <Thumbnail href={produtDetailPagUrl}>
         <img src={image.src} alt={image.alt} className="thumbnail" />
       </Thumbnail>
 
@@ -56,7 +56,7 @@ const ResultItem: React.FC<IResultItem> = ({ id, image, price, data, location, c
         </Price>
 
         <Description>
-          <a href={`#$${id}`}>
+          <a href={produtDetailPagUrl}>
             <div>{data.description}</div>
           </a>
 

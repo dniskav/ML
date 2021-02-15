@@ -35,3 +35,12 @@ export interface IResultItem {
 export interface IResultCollection {
   results: IResultItem[];
 };
+export interface ICurrentItem {
+  condition: string;
+  price: string;
+  sold_quantity: string;
+  title: string;
+  pictures: any[];
+  currency_id: string;
+  description: string;
+};

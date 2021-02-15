@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { Redirect } from 'react-router';
 import styled from 'styled-components';
 import mag from '../../assets/ic_Search.png';
-import { fetchItemsList } from '../../redux/actions';
 
 const StyledSearch = styled.div`
   display: flex;
@@ -32,19 +31,18 @@ const StyledInput = styled.input`
 `;
 
 const SearchBox: React.FC = () => {
-  const dispatch = useDispatch();
-
   const _handleKeyDown = (e: any) => {
     if (e.key === 'Enter') {
-      dispatch(fetchItemsList(searchTerm));
+      search();
     }
   };
 
   const search = () => {
-    dispatch(fetchItemsList(searchTerm));
+    window.location.href = window.location.origin + `/items?search=${searchTerm}`;
   };
 
   const [searchTerm, setSearchTerm] = useState('');
+
 
   return (
     <StyledSearch>

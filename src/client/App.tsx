@@ -6,6 +6,7 @@ import BreadCrumbs from './components/BreadCrumbs/index';
 import './styles/common.scss';
 import { useSelector } from 'react-redux';
 import { getResults } from './redux/selectors/index';
+import Router from './components/Router/'
 
 const Content = styled.div`
   display:flex;
@@ -27,6 +28,7 @@ const App: React.FC = () => {
       <Header />
       <Content>
         <BreadCrumbs />
+        <Router />
         <SearchResults results={res}/>
       </Content>
     </Container>
