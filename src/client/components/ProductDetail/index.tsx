@@ -87,8 +87,6 @@ const PDP: React.FC = () => {
     dispatch(fetchDetailItem(id))
   }, [id, dispatch]);
 
-  console.log(currentItem?.pictures[0].url);
-
   return (
     <Container>
       <ItemTop>

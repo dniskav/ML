@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux';
 import { IApplicationState } from '../types';
-import { itemsReducer } from './itemsReducer';
+import itemsReducer from './ItemsReducer';
 import { miscReducer } from './miscReducer';
 
 const rootReducer = combineReducers<IApplicationState>({
   items: itemsReducer,
-  itemsLoader: miscReducer,
+  miscellaneous: miscReducer,
 });
 
 export default rootReducer;

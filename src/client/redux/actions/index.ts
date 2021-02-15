@@ -5,6 +5,7 @@ export const SET_ITEMS_LIST = '@@actions/SET_ITEMS_LIST';
 export const SET_ITEM = '@@actions/SET_ITEM';
 export const SET_DETAIL_ITEM = '@@actions/SET_DETAIL_ITEM';
 export const ITEMS_LOADER = '@@actions/ITEMS_LOADER';
+export const SET_BREADCRUMBS = '@@actions/SET_BREADCRUMBS';
 
 export const setItem = (item: any) => action(SET_ITEM, item);
 
@@ -16,6 +17,8 @@ export const getitemsList = (items: any) => action(GET_ITEMS_LIST, items);
 export const setitemsList = (items: any) => action(SET_ITEMS_LIST, items);
 
 export const setDetailItem = (item: any) => action(SET_DETAIL_ITEM, item);
+
+export const setBreadcrumbs = (bName: string, bUrl: string) => action(SET_BREADCRUMBS, { bName, bUrl});
 
 export const fetchItemsList = (query: any) => {
   return async (dispatch: any, getState: any) => {
@@ -40,6 +43,7 @@ export const fetchDetailItem = (id: any) => {
       const detailItemRes = await axios.get(q, {});
       const description = await axios.get(`${q}/description`, {});
       dispatch(setDetailItem({...detailItemRes.data, description: description.data.plain_text}));
+      dispatch(setBreadcrumbs(detailItemRes.data.title, `${window.location.origin}/items/${id}`))
     } catch (err) {
       console.warn(`😢 ${err}`);
     } finally {
