@@ -1,4 +1,4 @@
-# Meracdolibre frontend test
+# Mercadolibre frontend test
 
 ### npm install
 
