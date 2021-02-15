@@ -9,7 +9,13 @@ export interface IReducerAction<TPayload>
   PayloadAction<TypeConstant, TPayload> { }
 
 export interface IApplicationState {
-  itemsLoader: boolean;
+  miscellaneous: {
+    itemsLoader: boolean;
+    BreadCrumbs: {
+      bName: string,
+      bUrl: string,
+    },
+  },
   items: {
     results: IResultItem[],
     currentItem: IResultItem,

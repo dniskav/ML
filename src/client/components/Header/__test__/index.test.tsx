@@ -1,12 +1,12 @@
 import React from 'react';
 import { shallow, ShallowWrapper } from 'enzyme';
-import App from './App';
+import Header from '../index';
 
 jest.mock('react-redux');
 
-describe('<App />', () => {
+describe('<Header />', () => {
   it("render success", () => {
-    const wrapper: ShallowWrapper = shallow(<App />);
+    const wrapper: ShallowWrapper = shallow(<Header />);
     expect(wrapper).toMatchSnapshot();
   });
 });

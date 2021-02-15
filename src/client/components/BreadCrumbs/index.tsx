@@ -7,13 +7,22 @@ const Container = styled.div`
   font-size: 0.85em;
   height: 46px;
   padding: 16px 4px;
+  color: #444;
+  & a {
+    text-decoration: none;
+    color: #444;
+  }
 `;
 
-const BreadCrumbs: React.FC = () => {
+interface IBreadCrumbs {
+  data: any,
+}
+
+const BreadCrumbs: React.FC<IBreadCrumbs> = ({ data }) => {
 
   return(
     <Container>
-      Electronica, Audio y video &gt; iPod &gt; Reproductores &gt; ipod touch &gt; 32 GB
+      Categoría &gt; &nbsp; <a href={data.bUrl}>{data.bName}</a> 
     </Container>
   )
 };

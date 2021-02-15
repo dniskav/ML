@@ -5,7 +5,7 @@ import SearchResults from './components/SearchResults/index';
 import BreadCrumbs from './components/BreadCrumbs/index';
 import './styles/common.scss';
 import { useSelector } from 'react-redux';
-import { getResults } from './redux/selectors/index';
+import { getResults, getBreadcrumbs } from './redux/selectors/index';
 import Router from './components/Router/'
 
 const Content = styled.div`
@@ -23,11 +23,12 @@ const Container = styled.div`
 
 const App: React.FC = () => {
   const res = useSelector(getResults);
+  const breadcrumbs = useSelector(getBreadcrumbs);
   return (
     <Container>
       <Header />
       <Content>
-        <BreadCrumbs />
+        <BreadCrumbs data={breadcrumbs} />
         <Router />
         <SearchResults results={res}/>
       </Content>
