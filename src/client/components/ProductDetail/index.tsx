@@ -90,7 +90,7 @@ const PDP: React.FC = () => {
   return (
     <Container>
       <ItemTop>
-        <ItemImages><img src={currentItem?.pictures[0]?.url} alt="lorem" /></ItemImages>
+        <ItemImages><img src={currentItem?.pictures[0]?.url} alt={currentItem.title} /></ItemImages>
 
         <ItemData>
           <Caption>{currentItem.condition === 'new' ? 'Nuevo' : 'Usado'} vendidos: {currentItem.sold_quantity}</Caption>
